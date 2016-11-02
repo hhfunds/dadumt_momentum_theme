@@ -1,0 +1,403 @@
+/*********************************************************************************/
+/* Basic                                                                         */
+/*********************************************************************************/
+
+	body, input, select, textarea
+	{
+		font-size: 10pt;
+		line-height: 1.75em;
+	}
+
+	h2
+	{
+		font-size: 2em;
+		line-height: 1.25em;
+		margin: 0 0 1em 0;
+		letter-spacing: -1px;
+	}
+
+	h3
+	{
+		line-height: 1.25em;
+		margin: 0 0 1em 0;
+		font-size: 1.75em;
+		letter-spacing: -0.5px !important;
+	}
+
+	.subtitle
+	{
+		font-size: 1.75em;
+		letter-spacing: -0.5px !important;
+	}
+
+/*********************************************************************************/
+/* Wrappers                                                                      */
+/*********************************************************************************/
+
+	#header-wrapper
+	{
+	}
+	
+	#banner-wrapper
+	{
+		padding: 4em 0 4em 0;
+	}
+	
+	#featured-wrapper
+	{
+		padding: 8em 0 8em 0;
+	}
+	
+	#main-wrapper
+	{
+		padding: 8em 0 8em 0;
+	}
+	
+	#footer-wrapper
+	{
+		padding: 8em 0 4em 0;
+	}
+
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+
+	#header
+	{
+		position: relative;
+		padding:1em 0 1em 0;
+	}
+
+		#header h1
+		{
+			letter-spacing: -1px;
+			text-align: center;
+			font-size: 2.50em;
+			font-weight: 400;
+		}
+
+			#header h1 a
+			{
+				text-decoration: none;
+				color: #FFFFFF;
+				outline: 0;
+			}
+		
+		#header span
+		{
+			font-weight: 200;
+			color: #727272;
+		}
+			
+
+/*********************************************************************************/
+/* Nav                                                                           */
+/*********************************************************************************/
+
+	#nav
+	{
+		position: relative;
+		height: 4em;
+		padding-top: 2em;
+		margin: 0px auto;
+		cursor: default;
+	}
+	
+		#nav ul
+		{
+			margin: 0;
+			padding: 0;
+			text-align: center;
+		}
+		
+			#nav > ul > li > ul
+			{
+				display: none;
+			}
+
+		#nav li
+		{
+			display: inline-block;
+			margin: 0em 0.50em;
+		}
+		
+		#nav a
+		{
+			display: inline-block;
+			line-height: 2.5em;
+			padding: 0 0.5em 0 0.5em;
+			text-decoration: none;
+			font-size: 1.15em;
+			color: #FFFFFF;
+			outline: 0;
+		}
+
+		#nav li:hover a
+		{
+			background: #282828;
+			background: rgba(42,42,42,0.94);
+			color: #bbb;
+		}
+		
+		#nav li:active a,
+		#nav li.active a
+		{
+			background: #282828;
+			background: rgba(42,42,42,0.94);
+			color: #fff;
+		}
+		
+		#nav .current_page_item a
+		{
+			background: #0087cd !important;
+			color: #FFFFFF !important;
+		}
+		
+		#nav .first
+		{
+			border-left: none;
+		}
+
+	.dropotron
+	{
+		background: #282828;
+		background: rgba(42,42,42,0.94);
+		min-width: 15em;
+		padding: 0.75em;
+		box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.15);
+	}
+	
+		.dropotron li
+		{
+		}
+		
+			.dropotron li > a,
+			.dropotron li > span
+			{
+				display: block;
+				color: #FFF;
+				text-decoration: none;
+				line-height: 2.75em;
+				padding: 0 1em 0 1em;
+				outline: 0;
+			}
+
+			.dropotron li:hover > a,
+			.dropotron li:hover > span
+			{
+				background: #202020;
+				color: #bcbcbc;
+			}
+
+/*********************************************************************************/
+/* Banner                                                                        */
+/*********************************************************************************/
+
+	#banner
+	{
+	}
+	
+		#banner .image-full
+		{
+		}
+		
+
+/*********************************************************************************/
+/* Footer                                                                        */
+/*********************************************************************************/
+
+	#footer
+	{
+	}
+
+/*********************************************************************************/
+/* Main                                                                          */
+/*********************************************************************************/
+
+	#main
+	{
+	}
+
+/*********************************************************************************/
+/* Content                                                                       */
+/*********************************************************************************/
+
+	#content
+	{
+		overflow: hidden;
+		padding-bottom: 6em;
+	}
+
+		#content p
+		{
+			text-align: justify;
+		}
+	
+		.homepage #content,
+		.no-sidebar #content
+		{
+		}
+		
+		.homepage #content
+		{
+			padding-bottom: 1em;
+		}
+		
+		.left-sidebar #content
+		{
+			padding-left: 3em;
+		}
+	
+		.right-sidebar #content
+		{
+			padding-right: 3em;
+		}
+	
+		#content h2
+		{
+			margin: 0 0 0.25em 0;
+			font-size: 3em;
+		}
+
+/*********************************************************************************/
+/* Featured                                                                      */
+/*********************************************************************************/
+	
+	#featured
+	{
+	}
+		
+		
+		#featured h2
+		{
+			font-size: 2.50em;
+			margin: 0 0 0.25em 0;
+		}
+	
+		#featured h3
+		{
+			font-size: 1.70em;
+		}
+
+		#featured .subtitle
+		{
+			font-size: 1.50em;
+		}
+
+		#featured .image
+		{
+			margin-bottom: 3em;
+		}
+
+/*********************************************************************************/
+/* Slider                                                                        */
+/*********************************************************************************/
+
+	#slider
+	{
+		overflow: hidden;
+		margin: 0 auto;
+		position: relative;
+		height: 370px;
+		cursor: default;
+	}
+	
+		#slider .viewer
+		{
+			margin: 0 auto;
+		}
+	
+			#slider .viewer .reel
+			{
+				display: none;
+			}
+	
+				#slider .viewer .reel .slide
+				{
+					position: relative;
+					width: 1200px !important;
+				}
+		
+				#slider .viewer .reel .slide img
+				{
+					width: 1200px;
+					line-height: 0;
+					position: absolute;
+					top: 0;
+					left: 0;
+				}
+
+		#slider .info
+		{
+			position: absolute;
+			z-index: 1;
+			width: 100%;
+			top: 7em;
+			right: 4em;
+			padding: 0px 0px 20px 30px;
+			text-align: right;
+		}
+
+		#slider .info h2
+		{
+			opacity: 0.75;
+			line-height: 1.25em;
+			font-size: 3em;
+			font-weight: 200;
+			color: #ffffff;
+			margin: 0 0 0.5em 0;
+		}
+		
+		#slider .info span
+		{
+			display: block;
+			text-decoration: none;
+			opacity: 0.75;
+			font-weight: 200;
+			color: #b4b3b3;
+			font-size: 2.00em;
+		}
+	
+		#slider .indicator
+		{
+			position: absolute;
+			bottom: 2em;
+			right: 4em;
+			height: 50px;
+		}
+		
+			#slider .indicator ul
+			{
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				text-align: center;
+			}
+		
+				#slider .indicator ul li
+				{
+					display: inline-block;
+					width: 1em;
+					height: 1em;
+					text-indent: -9999px;
+					background: #555;
+					background: rgba(255,255,255,.20);
+					margin: 0 0.25em 0 0.25em;
+					border-radius: 50%;
+				}
+		
+					#slider .indicator ul li.active
+					{
+						background: #fff;
+						background: rgba(255,255,255,.60);
+					}
+					
+/*********************************************************************************/
+/* Copyright                                                                     */
+/*********************************************************************************/
+
+	#copyright 
+	{
+		margin-top: 2em;
+		padding: 4em 0em 8em 0em;
+	}

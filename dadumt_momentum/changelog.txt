@@ -1,0 +1,73 @@
+﻿# Change Log
+
+##[0.1.9] - 2016-10-31
+###Fixed
+修正index.php:156:167:178 PHP呼叫程式ID錯誤
+###Changed
+變更佈景主題名稱為 Momentum dadumt
+
+## [0.1.8] – 2016-08-29
+### Fixed
+修正page.php:53 Facebook留言板功能程式碼錯誤
+###Changed
+變更theme-optionen.php:420:432 佈景主題後台 Facebook留言板 描述
+
+## [0.1.7] – 2016-08-20
+### Added
+新增post、page Facebook留言板
+
+## [0.1.6] – 2016-08-04
+### Fixed
+修正 archive.php 內容空白
+###Changed
+變更佈景主題後台設計
+
+## [0.1.5] – 2016-05-09
+### Fixed
+修正 index.php slider Theme control 圖片連結失效
+###Changed
+變更 index.php single.php page.php header Logo顯示方式
+
+## [0.1.4] – 2016-04-30
+### Fixed
+修正 css/style.css:817 WordPress Core RWD響應式網頁 圖片大小問題
+###Changed
+變更 single.php:37 <div id="sidebar" class="3u">版面配置大小class
+變更 single.php:51 <div class="9u important(collapse)">版面配置大小class
+
+## [0.1.3] – 2016-04-10
+###Changed
+變更 css/style.css:178:189 首頁選單文字顏色
+
+## [0.1.2] – 2016-04-07
+### Removed
+刪除測試用公車路線查詢頁面
+### Added
+新增媒體庫分類
+###Changed
+變更 css/style.css:50 文字大小為18px
+變更 css/style.css:56 文字大小為16px
+變更 css/style-desktop.css:129 padding:0 0.5em 0 0.5em
+變更 css/style-desktop.css:131 font-size:1.15em
+
+## [0.1.1] – 2016-04-06
+### Fixed
+修正 js/init.js:6-9 連結錯誤問題 
+修正 css/style-1000px.css:96 顯示header問題
+修正 css/style-mobile.css:323 顯示header問題
+### Changed
+變更 css/style-desktop.css:140:132:179 首頁選單文字顏色
+
+## [0.1] – 2016-03-25
+### Fixed
+修正文章樣式失效
+修正外掛模組失效
+修正’404’錯誤頁面
+修正’搜尋’功能頁面
+###Added
+新增Themes Control後台控制介面
+新增Google「思源黑體」中文網頁字型
+新增頁面「模板」功能
+
+## [0.0] – 2016-02-18
+將Momentum主題製作成wordpress themes

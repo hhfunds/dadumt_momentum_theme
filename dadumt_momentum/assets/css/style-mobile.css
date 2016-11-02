@@ -1,0 +1,419 @@
+/*********************************************************************************/
+/* Basic                                                                         */
+/*********************************************************************************/
+
+	body, input, select, textarea
+	{
+		font-size: 9.5pt;
+		letter-spacing: 0;
+		line-height: 1.75em;
+	}
+
+	h2, h3, h4, h5, h6
+	{
+		line-height: 1.25em !important;
+		font-size: 1.5em !important;
+		letter-spacing: 0px !important;
+		margin: 0 0 1.25em 0;
+	}
+
+	/* Section/Article */
+
+		section,
+		article
+		{
+			margin: 0 0 3em 0 !important;
+		}
+
+		.bordered
+		{
+		}
+		
+			.bordered section
+			{
+				margin: 0 !important;
+			}
+			
+		.subtitle
+		{
+			margin: 0 0 2em 0;
+		}
+
+	/* Button */
+	
+		.button
+		{
+			display: block;
+			font-size: 1.25em !important;
+			letter-spacing: 0px !important;
+		}
+
+	/* Image */
+	
+		.image
+		{
+			display: block;
+			width: 100%;
+			margin: 0 0 2em 0;
+		}
+
+			.image.left
+			{
+				float: left;
+				width: 25%;
+				margin: 0 2em 1em 0;
+			}
+
+	/* List */
+
+		ul.style2
+		{
+		}
+		
+			ul.style2 li.first
+			{
+				padding: 2em 0em 1em 0em;
+				border-top: 1px solid #e0e0e0;
+			}
+
+		ul.actions
+		{
+			cursor: default;
+			margin-top: 1em;
+		}
+
+			ul.actions li
+			{
+				display: block;
+				padding: 1em 0 0 0;
+			}
+
+				ul.actions li input[type="submit"],
+				ul.actions li input[type="reset"],
+				ul.actions li input[type="button"],
+				ul.actions li .button
+				{
+					display: block;
+					width: 100%;
+				}
+
+				ul.actions li:first-child
+				{
+					padding: 0;
+				}
+
+	/* Highlight */
+
+		.highlight
+		{
+		}
+		
+			.highlight header
+			{
+				padding: 1.25em 80px 1em 1.25em;
+			}
+
+				.highlight header:before
+				{
+					right: 24px;
+					margin-top: -24px; 
+					font-size: 48px;
+				}				
+
+/*********************************************************************************/
+/* Mobile UI                                                                     */
+/*********************************************************************************/
+
+	#titleBar .toggle
+	{
+		text-indent: -9999px;
+		width: 70px;
+		height: 50px;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+
+		#titleBar .toggle:before
+		{
+			content: '';
+			position: absolute;
+			left: 10px;
+			top: 10px;
+			background: rgba(128,128,128,0.75);
+			width: 60px;
+			height: 36px;
+			opacity: 0.5;
+		}
+
+		#titleBar .toggle:after
+		{
+			content: '';
+			position: absolute;
+			left: 27px;
+			top: 22px;
+			width: 44px;
+			height: 44px;
+			background: url('images/toggle.svg') 0 0 no-repeat;
+			opacity: 0.6;
+		}
+
+		#titleBar .toggle:active:before
+		{
+			opacity: 1.0;
+		}
+
+	#navPanel
+	{
+		background: #111 url('images/overlay.png') repeat;
+		box-shadow: inset -3px 0px 10px 0px rgba(0,0,0,0.25);
+	}
+
+		#navPanel .link
+		{
+			display: block;
+			color: #888;
+			text-decoration: none;
+			height: 44px;
+			line-height: 44px;
+			border-top: 1px solid rgba(255,255,255,0.05);
+			padding: 0 1em 0 1em;
+		}
+		
+		#navPanel .link:first-child
+		{
+			border-top: 0;
+		}
+
+		#navPanel .indent-1 { display: inline-block; width: 1em; }
+		#navPanel .indent-2 { display: inline-block; width: 2em; }
+		#navPanel .indent-3 { display: inline-block; width: 3em; }
+		#navPanel .indent-4 { display: inline-block; width: 4em; }
+		#navPanel .indent-5 { display: inline-block; width: 5em; }
+		#navPanel .depth-0 { color: #fff; }
+
+/*********************************************************************************/
+/* Wrappers                                                                      */
+/*********************************************************************************/
+
+	#header-wrapper
+	{
+		padding: 3em 0 3em 0;
+		display: none;
+	}
+	
+	#banner-wrapper
+	{
+		padding: 20px 20px 0 20px;
+		overflow: hidden;
+	}
+	
+	#main-wrapper,
+	#featured-wrapper,
+	#footer-wrapper
+	{
+		padding: 3em 20px 2em 20px;
+	}
+
+/*********************************************************************************/
+/* Header                                                                        */
+/*********************************************************************************/
+
+	#header
+	{
+	}
+
+		#header h1
+		{
+			display: block;
+			padding: 0 1em;
+			letter-spacing: -1px;
+			line-height: 1.25em;
+			text-align: center;
+			font-size: 1.60em;
+			font-weight: 400;
+		}
+
+			#header h1 a
+			{
+				text-decoration: none;
+				color: #FFFFFF;
+			}
+		
+		#header span
+		{
+			display: block;
+			font-size: 0.65em;
+			font-weight: 200;
+			color: #727272;
+			letter-spacing: 0;
+		}
+
+/*********************************************************************************/
+/* Banner                                                                        */
+/*********************************************************************************/
+
+	#banner
+	{
+	}
+	
+		#banner section
+		{
+			margin: 0 0 20px 0 !important;
+		}
+
+		#banner .button
+		{
+			margin: 0;
+		}
+
+/*********************************************************************************/
+/* Slider                                                                        */
+/*********************************************************************************/
+
+	#slider
+	{
+		overflow: hidden;
+		margin: 0 auto;
+		position: relative;
+		width: 100%;
+		margin: 0 0 20px 0;
+	}
+	
+		#slider .viewer
+		{
+			margin: 0 auto;
+		}
+	
+			#slider .viewer .reel
+			{
+				display: none;
+			}
+	
+				#slider .viewer .reel .slide
+				{
+					position: relative;
+					height: auto;
+				}
+		
+				#slider .viewer .reel .slide img
+				{
+					width: 225%;
+					line-height: 0;
+					position: absolute;
+					top: 0;
+					left: 0;
+				}
+
+		#slider .info
+		{
+			width: 100%;
+			background: rgba(0,0,0,0.80);
+			position: absolute;
+			bottom: 0;
+			text-align: center;
+			z-index: 1;
+			padding: 1em 1.5em 1em 1.5em;
+			display: none;
+		}
+
+		#slider .info h2
+		{
+			font-weight: 400;
+			color: #ffffff;
+			margin: 0 0 0.1em 0;
+			font-size: 1.25em !important;
+			letter-spacing: 0;
+		}
+		
+			#slider .info h2 br
+			{
+				display: none;
+			}
+		
+		#slider .info span
+		{
+			display: block;
+			opacity: 0.75;
+			font-weight: 200;
+			color: #b4b3b3;
+		}
+	
+		#slider .indicator
+		{
+			position: absolute;
+			top: 20px;
+			left: 0;
+			text-align: center;
+			width: 100%;
+			display: none;
+		}
+		
+			#slider .indicator ul
+			{
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				text-align: center;
+			}
+		
+				#slider .indicator ul li
+				{
+					display: inline-block;
+					width: 1em;
+					height: 1em;
+					text-indent: -9999px;
+					background: rgba(255,255,255,.50);
+					margin: 0 0.25em 0 0.25em;
+					border-radius: 50%;
+				}
+		
+					#slider .indicator ul li.active
+					{
+						background: rgba(255,255,255,.75);
+					}
+
+/*********************************************************************************/
+/* Nav                                                                           */
+/*********************************************************************************/
+
+	#nav
+	{
+		display: none;
+	}
+
+/*********************************************************************************/
+/* Featured                                                                      */
+/*********************************************************************************/
+	
+	#featured
+	{
+	}
+		
+		#featured h2
+		{
+			margin: 0 0 0.25em 0;
+		}
+		
+/*********************************************************************************/
+/* Sidebar                                                                       */
+/*********************************************************************************/
+
+	#sidebar
+	{
+	}
+
+		#sidebar ul.style2
+		{
+		}
+		
+			#sidebar ul.style2 li.first
+			{
+				padding-top: 0;
+				border-top: 0;
+			}
+			
+#titleBar. skel-layer skel-layer-top-left
+	{
+		display: none;
+	}
