@@ -7,7 +7,7 @@
 			<!-- Start Main Nav -->
 			<!-- 顯示主選單 --> 
 			<nav id="nav">
-			<img src="<?php echo( get_header_image() ); ?>" alt="<?php echo( get_bloginfo( 'title' ) ); ?>" style="float:left; max-width:25%; height:auto;"/>
+			<a href="<?php bloginfo( 'url' ); ?>" style="float:left; max-width:25%; height:auto;"><img src="<?php echo( get_header_image() ); ?>" alt="<?php echo( get_bloginfo( 'title' ) ); ?>" style="float:left; max-width:100%; height:auto;"/></a>
 			<?php
 			wp_nav_menu( array(
 				'menu_class'     => 'nav-menu',
@@ -37,6 +37,13 @@
 					</section>
 						</br>
 							<?php dynamic_sidebar('sidebarleft'); ?>
+						<?php if( is_user_logged_in() ): ?>
+						<ul class="style2">
+							<?php edit_post_link('編輯文章', '<a>', '</a>'); ?>
+							</br>
+							<a href="<?php bloginfo( 'url' ); ?>/wp-admin">後台管理</a>
+						</ul>
+						<?php endif; ?>
 				</div>
 				
 				<div class="9u important(collapse)">

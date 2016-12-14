@@ -14,7 +14,9 @@
 					</div>
 
 					<div id="copyright">
-						&copy; Honghuafund. All rights reserved.
+						&copy; Honghuafund. All rights reserved
+						<br>
+						<a href="http://www.freepik.com/free-photos-vectors/nature" style="font-size:12px; color:#b8b8b8; text-decoration:none;">The Logo of this project is designed by Freepik</a>
 					</div>
 				</footer>
 			</div>

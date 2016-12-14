@@ -19,6 +19,21 @@ add_theme_support( 'post-thumbnails' );
 add_theme_support( 'custom-header' );
 }
 
+
+// add tag support to pages
+function tags_support_all() {
+	register_taxonomy_for_object_type('post_tag', 'page');
+}
+
+// ensure all tags are included in queries
+function tags_support_query($wp_query) {
+	if ($wp_query->get('tag')) $wp_query->set('post_type', 'any');
+}
+
+// tag hooks
+add_action('init', 'tags_support_all');
+add_action('pre_get_posts', 'tags_support_query');
+
 //佈景主題支援客製page
 function my_post_template($template) {
    if ( !is_single() ) return $template;
@@ -71,30 +86,12 @@ $GLOBALS['comment'] = $comment;
 
 //佈景主題sidebar註冊
 if ( function_exists('register_sidebar') ){
-register_sidebar(array(
-'name' => '底部左側選單',
-'id' => 'footerleft',
-'description' => '顯示於頁面下方左側的選單。',
-'before_widget' => '<section>',
-'after_widget' => '</section>',
-'before_title' => '<h2>',
-'after_title' => '</h2>'
-));
+	
 
 register_sidebar(array(
-'name' => '底部中間選單',
-'id' => 'footercenter',
-'description' => '顯示於頁面下方中間的選單。',
-'before_widget' => '<section>',
-'after_widget' => '</section>',
-'before_title' => '<h2>',
-'after_title' => '</h2>'
-));
-
-register_sidebar(array(
-'name' => '底部右側選單',
-'id' => 'footerright',
-'description' => '顯示於頁面下方右側的選單。',
+'name' => '首頁Featured Wrapper',
+'id' => 'news_left',
+'description' => '顯示於首頁Featured Wrapper左側的選單。',
 'before_widget' => '<section>',
 'after_widget' => '</section>',
 'before_title' => '<h2>',
@@ -112,9 +109,29 @@ register_sidebar(array(
 ));
 
 register_sidebar(array(
-'name' => '首頁中間左側選單',
-'id' => 'news_left',
-'description' => '顯示於首頁中間左側的選單。',
+'name' => 'Footer左側選單',
+'id' => 'footerleft',
+'description' => '顯示於頁面Footer左側的選單。',
+'before_widget' => '<section>',
+'after_widget' => '</section>',
+'before_title' => '<h2>',
+'after_title' => '</h2>'
+));
+
+register_sidebar(array(
+'name' => 'Footer中間選單',
+'id' => 'footercenter',
+'description' => '顯示於頁面Footer中間的選單。',
+'before_widget' => '<section>',
+'after_widget' => '</section>',
+'before_title' => '<h2>',
+'after_title' => '</h2>'
+));
+
+register_sidebar(array(
+'name' => 'Footer右側選單',
+'id' => 'footerright',
+'description' => '顯示於頁面Footer右側的選單。',
 'before_widget' => '<section>',
 'after_widget' => '</section>',
 'before_title' => '<h2>',
@@ -245,21 +262,28 @@ add_filter( 'wp_link_pages', 'custom_wp_link_pages');
 
 //siderbar相關文章
 function get_siderbar_similar_post($post_id){
-   $tags = wp_get_post_tags($post_id);
-   if ($tags) {
-      $first_tag = $tags[0]->term_id;
-      $args = array(
-        'tag__in' => array($first_tag),
-        'post__not_in' => array($post_id),
-        'showposts'=>5,
-        'caller_get_posts'=>1
-        );   
-        $my_query = new WP_Query($args);
+	global $post;
+	$tags = wp_get_post_tags($post_id);
+   
+    if ($tags) {
+	$tag_ids = array();
+	
+		foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
+			$args=array(
+				'tag__in' => $tag_ids,
+				'post__not_in' => array($post->ID),
+				'post_type' => 'any',
+				'posts_per_page'=>10, // Number of related posts to display.
+				'caller_get_posts'=>1
+			);
+ 
+	$my_query = new wp_query( $args );
+ 
         if( $my_query->have_posts() ) :    while ($my_query->have_posts()) : $my_query->the_post(); ?>
 			<li>
 				<?php if ( has_post_thumbnail() ) : ?> <a href="<?php the_permalink(); ?>" class="image left"><?php the_post_thumbnail( 'thumbnail', array( 'class' => 'image' ) ); ?><?php endif;?></a>
 				<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-				<p><?php the_content(); ?></p>
+				<p style="font-size:12px;"><?php echo(get_the_excerpt()); ?></p>
 			</li>
         <?php endwhile;    endif; wp_reset_query();
         }
@@ -298,5 +322,13 @@ function of_get_option( $name, $default = false ) {
   return $default;
 }
 endif;
-?>
 
+function my_content_manipulator($content){
+    if( is_ssl() ){
+        $content = str_replace('http://dadumt.honghuafund.org/wp-content/uploads', 'https://dadumt.honghuafund.org/wp-content/uploads', $content);
+    }
+    return $content;
+}
+add_filter('the_content', 'my_content_manipulator');
+
+?>

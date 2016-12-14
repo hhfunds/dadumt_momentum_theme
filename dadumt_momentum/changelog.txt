@@ -1,10 +1,56 @@
 ﻿# Change Log
 
+
+##[0.2.0] - 2016-12-14
+###Added
+首頁新增Project顯示
+網站Header Logo新增首頁連結
+###Changed
+佈景主題設定ID命名規則化
+變更相關文章顯示摘要方式 functions.php:262
+變更相關文章顯示模式 顯示多個標籤的相關文章
+在style.css變更以下CSS
+/*
+:2變更 Google font字體CSS
+:47-50#featured-wrapper p 縮小首頁news下方文字間距
+:57 font-weight:300; 新增p標籤文字 增加寬度
+:100 margin-bottom: 4em; 變更首頁news 了解更多按鈕下方間距
+:111 padding-top: 1em; 縮小footer高度
+:132 height: 200px; 固定首頁news圖片高度
+:172-176 #content img 設定網頁內容圖片RWD
+:368 font-weight: 400; 相關文章標題加粗
+:703 #header-wrapper 設定網站header上方選單固定
+:723 #banner-wrapper 變更首頁顏色為淺灰色
+:749 #main-wrapper 增加main-wrapper間距 避免被header上方固定選單遮住
+:762 #footer-wrapper 變更footer顏色
+:806 #featured h3 變更首頁news 增加h3文字寬度
+:809-814 #featured a 變更首頁news 設定a標籤 文字連結後保持黑色無底線
+:816-822 #featured footer a 變更首頁news 了解更多 文字保持白色 讓按鈕加大跟圖片同寬
+*/
+
+在style-1000px.css變更以下CSS
+/*
+:72 #banner-wrapper 修正header上方固定選單在1000px下高度太低
+:82 #main-wrapper 增加main-wrapper間距
+:87 #footer-wrapper 減少footer高度
+*/
+
+在style-desktop.css變更以下CSS
+/*
+:13 font-size: 1.75em; 變更h2標籤文字大小
+:43 #banner-wrapper 增加banner-wrapper間距 避免被header上方固定選單遮住 及減少下方間距
+:48 #featured-wrapper 減少featured-wrapper上方間距
+:53 #main-wrapper 增加main-wrapper間距 避免被header上方固定選單遮住
+:58 padding: 2em 0 2em 0; 縮小footer高度
+:280 #featured h3 首頁news 縮小h3標籤間距
+:290 #featured img 首頁news 縮小圖片間距
+*/
+
 ##[0.1.9] - 2016-10-31
 ###Fixed
 修正index.php:156:167:178 PHP呼叫程式ID錯誤
 ###Changed
-變更佈景主題名稱為 Momentum dadumt
+變更佈景主題名稱為 Momentum dadum
 
 ## [0.1.8] – 2016-08-29
 ### Fixed

@@ -1,9 +1,9 @@
 <?php 
 /* 
- * Momentum for Honghuafund Theme based on the HTML template Momentum from http://pixelarity.com
+ * Momentum dadumt Theme based on the HTML template Momentum from http://pixelarity.com
  * Modified by Z.yao
- * Version: 0.1.7
- * Date: 2016-08-20
+ * Version: 0.2.0
+ * Date: 2016-12-14
  * Licensed: http://pixelarity.com/license
  */
 ?>
@@ -16,7 +16,7 @@
 				<!-- Start Main Nav -->
 				<!-- 顯示主選單 --> 
 				<nav id="nav">
-				<img src="<?php echo( get_header_image() ); ?>" alt="<?php echo( get_bloginfo( 'title' ) ); ?>" style="float:left; max-width:25%; height:auto;"/>
+				<a href="<?php bloginfo( 'url' ); ?>" style="float:left; max-width:25%; height:auto;"><img src="<?php echo( get_header_image() ); ?>" alt="<?php echo( get_bloginfo( 'title' ) ); ?>" style="float:left; max-width:100%; height:auto;"/></a>
 				
 				<?php
 					wp_nav_menu( array(
@@ -97,11 +97,11 @@
 					<!-- Define highlight item 1 -->
 					<div class="4u">
 						<section class="highlight">
-							<a href="<?php echo of_get_option('highlight_picture1_link'); ?>">
-								<span class="image fit"><img src="<?php echo of_get_option('highlight_picture1'); ?>" alt=""></span>
+							<a href="<?php echo of_get_option('highlight_1_link'); ?>">
+								<span class="image fit"><img src="<?php echo of_get_option('highlight_1_picture'); ?>" alt=""></span>
 								<header>
-									<h2><?php echo of_get_option('highlight_picture1_title'); ?></h2>
-									<p><?php echo of_get_option('highlight_picture1_content'); ?></p>
+									<h2><?php echo of_get_option('highlight_1_title'); ?></h2>
+									<p><?php echo of_get_option('highlight_1_content'); ?></p>
 								</header>
 							</a>
 						</section>
@@ -110,11 +110,11 @@
 					<!-- Define highlight item 2 -->
 					<div class="4u"> 
 						<section class="highlight alt">
-							<a href="<?php echo of_get_option('highlight_picture2_link'); ?>">
-								<span class="image fit"><img src="<?php echo of_get_option('highlight_picture2'); ?>" alt=""></span>
+							<a href="<?php echo of_get_option('highlight_2_link'); ?>">
+								<span class="image fit"><img src="<?php echo of_get_option('highlight_2_picture'); ?>" alt=""></span>
 								<header>
-									<h2><?php echo of_get_option('highlight_picture2_title'); ?></h2>
-									<p><?php echo of_get_option('highlight_picture2_content'); ?></p>
+									<h2><?php echo of_get_option('highlight_2_title'); ?></h2>
+									<p><?php echo of_get_option('highlight_2_content'); ?></p>
 								</header>
 							</a>
 						</section>
@@ -123,11 +123,11 @@
 					<!-- Define highlight item 3 -->
 					<div class="4u"> 
 						<section class="highlight alt2">
-							<a href="<?php echo of_get_option('highlight_picture3_link'); ?>">
-								<span class="image fit"><img src="<?php echo of_get_option('highlight_picture3'); ?>" alt=""></span>
+							<a href="<?php echo of_get_option('highlight_3_link'); ?>">
+								<span class="image fit"><img src="<?php echo of_get_option('highlight_3_picture'); ?>" alt=""></span>
 								<header>
-									<h2><?php echo of_get_option('highlight_picture3_title'); ?></h2>
-									<p><?php echo of_get_option('highlight_picture3_content'); ?></p>
+									<h2><?php echo of_get_option('highlight_3_title'); ?></h2>
+									<p><?php echo of_get_option('highlight_3_content'); ?></p>
 								</header>
 							</a>
 						</section>
@@ -149,39 +149,164 @@
 					
 					<div id="box1" class="3u">
 						<section>
-							<img class="image fit" src="<?php echo of_get_option('news_picture1'); ?>" alt="">
-							<h3><?php echo of_get_option('news_picture1_title'); ?></h3>
-							<p><?php echo of_get_option('news_picture1_content'); ?></p>
+							<img class="image fit" src="<?php echo of_get_option('news_1_picture'); ?>" alt="">
+							<a href="<?php echo of_get_option('news_1_link'); ?>"><h3><?php echo of_get_option('news_1_title'); ?></h3></a>
+							<a href="<?php echo of_get_option('news_1_link2'); ?>"><p><?php echo of_get_option('news_1_content'); ?></p></a>
 							<footer>
-								<a href="<?php echo of_get_option('news_picture1_link'); ?>" class="button icon fa-arrow-circle-right">了解更多</a>
+								<a href="<?php echo of_get_option('news_1_link'); ?>" class="button icon fa-arrow-circle-right">了解更多</a>
 							</footer>
 						</section>
 					</div>
 							
 					<div class="3u">
 						<section>
-							<img class="image fit" src="<?php echo of_get_option('news_picture2'); ?>" alt="">
-							<h3><?php echo of_get_option('news_picture2_title'); ?></h3>
-							<p><?php echo of_get_option('news_picture2_content'); ?></p>
+							<img class="image fit" src="<?php echo of_get_option('news_2_picture'); ?>" alt="">
+							<a href="<?php echo of_get_option('news_2_link'); ?>"><h3><?php echo of_get_option('news_2_title'); ?></h3></a>
+							<a href="<?php echo of_get_option('news_2_link2'); ?>"><p><?php echo of_get_option('news_2_content'); ?></p></a>
 							<footer>
-								<a href="<?php echo of_get_option('news_picture2_link'); ?>" class="button icon alt fa-arrow-circle-right">了解更多</a>
+								<a href="<?php echo of_get_option('news_2_link'); ?>" class="button icon alt fa-arrow-circle-right">了解更多</a>
 							</footer>
 						</section>
 					</div>
 					
 					<div class="3u">
 						<section>
-							<img class="image fit" src="<?php echo of_get_option('news_picture3'); ?>" alt="">
-							<h3><?php echo of_get_option('news_picture3_title'); ?></h3>
-							<p><?php echo of_get_option('news_picture3_content'); ?></p>
+							<img class="image fit" src="<?php echo of_get_option('news_3_picture'); ?>" alt="">
+							<a href="<?php echo of_get_option('news_3_link'); ?>"><h3><?php echo of_get_option('news_3_title'); ?></h3></a>
+							<a href="<?php echo of_get_option('news_3_link2'); ?>"><p><?php echo of_get_option('news_3_content'); ?></p></a>
 							<footer>
-								<a href="<?php echo of_get_option('news_picture3_link'); ?>" class="button icon alt2 fa-arrow-circle-right">了解更多</a>
+								<a href="<?php echo of_get_option('news_3_link'); ?>" class="button icon alt2 fa-arrow-circle-right">了解更多</a>
 							</footer>
 						</section>
 					</div>
-	
+					
+					<div class="3u">
+						<section>
+							<img class="image fit" src="<?php echo of_get_option('news_4_picture'); ?>" alt="">
+							<a href="<?php echo of_get_option('news_4_link'); ?>"><h3><?php echo of_get_option('news_4_title'); ?></h3></a>
+							<a href="<?php echo of_get_option('news_4_link2'); ?>"><p><?php echo of_get_option('news_4_content'); ?></p></a>
+							<footer>
+								<a href="<?php echo of_get_option('news_4_link'); ?>" class="button icon fa-arrow-circle-right">了解更多</a>
+							</footer>
+						</section>
+					</div>
+							
+					<div class="3u">
+						<section>
+							<img class="image fit" src="<?php echo of_get_option('news_5_picture'); ?>" alt="">
+							<a href="<?php echo of_get_option('news_5_link'); ?>"><h3><?php echo of_get_option('news_5_title'); ?></h3></a>
+							<a href="<?php echo of_get_option('news_5_link2'); ?>"><p><?php echo of_get_option('news_5_content'); ?></p></a>
+							<footer>
+								<a href="<?php echo of_get_option('news_5_link'); ?>" class="button icon alt fa-arrow-circle-right">了解更多</a>
+							</footer>
+						</section>
+					</div>
+					
+					<?php if (!empty(of_get_option('news_6_link'))): ?>
+					<div class="3u">
+						<section>
+							<img class="image fit" src="<?php echo of_get_option('news_6_picture'); ?>" alt="">
+							<a href="<?php echo of_get_option('news_6_link'); ?>"><h3><?php echo of_get_option('news_6_title'); ?></h3></a>
+							<a href="<?php echo of_get_option('news_6_link2'); ?>"><p><?php echo of_get_option('news_6_content'); ?></p></a>
+							<footer>
+								<a href="<?php echo of_get_option('news_6_link'); ?>" class="button icon alt2 fa-arrow-circle-right">了解更多</a>
+							</footer>
+						</section>
+					</div>
+					<?php endif; ?>
+					
 				</div>
 			</div>
 		</div>
+		<!-- End Featured Wrapper--> 
 		
+		<?php if (of_get_option('project_checkbox') == 1): ?>
+		<!-- Project Wrapper -->
+			<div id="main-wrapper">
+					<div id="main" class="container">
+						<div class="row">
+							<!-- Project Wrapper item 1 -->
+							<div class="12u">
+								<article id="content">
+									<h2><?php echo of_get_option('project_1_title'); ?></h2>
+									<a href="<?php echo of_get_option('project_1_link'); ?>" class="image left"><img src="<?php echo of_get_option('project_1_picture'); ?>" alt=""></a>
+									<p><?php echo of_get_option('project_1_content'); ?></p>
+									<footer>
+										<a href="<?php echo of_get_option('project_1_link'); ?>" class="button icon fa-arrow-circle-right">了解更多</a>
+									</footer>
+								</article>
+							</div>
+						</div>
+						<div class="row">
+							<div class="6u">
+								<section>
+									<ul class="style2">
+										<!-- Project Wrapper item 2 -->
+										<li class="first">
+											<a href="<?php echo of_get_option('project_2_link'); ?>" class="image left"><img src="<?php echo of_get_option('project_2_picture'); ?>" alt=""></a>
+											<h3><a href="<?php echo of_get_option('project_2_link'); ?>"><?php echo of_get_option('project_2_title'); ?></a></h3>
+											<p><?php echo of_get_option('project_2_content'); ?></p>
+										</li>
+										<!-- Project Wrapper item 3 -->
+										<li>
+											<a href="<?php echo of_get_option('project_3_link'); ?>" class="image left"><img src="<?php echo of_get_option('project_3_picture'); ?>" alt=""></a>
+											<h3><a href="<?php echo of_get_option('project_3_link'); ?>"><?php echo of_get_option('project_3_title'); ?></a></h3>
+											<p><?php echo of_get_option('project_3_content'); ?></p>
+										</li>
+									</ul>
+								</section>
+							</div>
+							<div class="6u">
+								<section>
+									<ul class="style2">
+										<!-- Project Wrapper item 4 -->
+										<li class="first">
+											<a href="<?php echo of_get_option('project_4_link'); ?>" class="image left"><img src="<?php echo of_get_option('project_4_picture'); ?>" alt=""></a>
+											<h3><a href="<?php echo of_get_option('project_4_link'); ?>"><?php echo of_get_option('project_4_title'); ?></a></h3>
+											<p><?php echo of_get_option('project_4_content'); ?></p>
+										</li>
+										<!-- Project Wrapper item 5 -->
+										<li>
+											<a href="<?php echo of_get_option('project_5_link'); ?>" class="image left"><img src="<?php echo of_get_option('project_5_picture'); ?>" alt=""></a>
+											<h3><a href="<?php echo of_get_option('project_5_link'); ?>"><?php echo of_get_option('project_5_title'); ?></a></h3>
+											<p><?php echo of_get_option('project_5_content'); ?></p>
+										</li>
+									</ul>
+								</section>
+							</div>
+							<div class="6u">
+								<section>
+									<ul class="style2">
+										<!-- Project Wrapper item 6 -->
+										<li class="first">
+										</li>
+										<li>
+											<a href="<?php echo of_get_option('project_6_link'); ?>" class="image left"><img src="<?php echo of_get_option('project_6_picture'); ?>" alt=""></a>
+											<h3><a href="<?php echo of_get_option('project_6_link'); ?>"><?php echo of_get_option('project_6_title'); ?></a></h3>
+											<p><?php echo of_get_option('project_6_content'); ?></p>
+										</li>
+									</ul>
+								</section>
+							</div>
+							<div class="6u">
+								<section>
+									<ul class="style2">
+										<!-- Project Wrapper item 7 -->
+										<li class="first">
+										</li>
+										<li>
+											<a href="<?php echo of_get_option('project_7_link'); ?>" class="image left"><img src="<?php echo of_get_option('project_7_picture'); ?>" alt=""></a>
+											<h3><a href="<?php echo of_get_option('project_7_link'); ?>"><?php echo of_get_option('project_7_title'); ?></a></h3>
+											<p><?php echo of_get_option('project_7_content'); ?></p>
+										</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</div>
+
+			</div>
+			<!-- End Project Wrapper -->
+			<?php endif; ?>
+			
 <?php get_footer(); ?>

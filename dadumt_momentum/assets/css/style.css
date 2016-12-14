@@ -1,6 +1,7 @@
 @charset 'UTF-8';
-@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url('font-google.css');
 @import url('font-awesome.min.css');
+
 
 /*********************************************************************************/
 /* Basic                                                                         */
@@ -43,11 +44,15 @@
 	{
 		margin-bottom: 1em;
 	}
-	
+		#featured-wrapper p
+		{
+			margin-bottom: 0;
+		}
 	p
 	{
 		line-height: 2em;
 		font-size: 18px;
+		font-weight:300;
 	}
 	
 	a
@@ -92,7 +97,7 @@
 			section > :last-child,
 			article > :last-child
 			{
-				margin-bottom: 0;
+				margin-bottom: 4em;
 			}
 
 			section:last-child,
@@ -103,7 +108,7 @@
 
 		footer
 		{
-			padding-top: 1em;
+			padding-top: 0.5em;
 		}
 
 		.subtitle
@@ -124,12 +129,14 @@
 			{
 				display: block;
 				width: 100%;
+				height: 200px;
 			}
 
 			.image.fit
 			{
 				display: block;
 				width: 100%;
+				height: 200px;
 			}
 			
 			.image.featured
@@ -162,6 +169,11 @@
 					margin: 0 auto;
 					width: auto;
 				}
+			#content img
+			{
+				max-width:100%;
+				width:auto;
+			}
 
 	/* Button */
 
@@ -353,6 +365,7 @@
 					display: block;
 					padding: 0.25em 0em 0.75em 0em;
 					color: #262626;
+					font-weight: 400;
 				}
 			
 			ul.style2 .first
@@ -685,8 +698,10 @@
 
 	#header-wrapper
 	{
-		position: relative;
-		background: #080808 url('images/overlay.png') repeat;
+		position: fixed;
+		z-index: 999;
+		width:100%;
+		background: #23282d url('images/overlay.png') repeat;
 		top: 0;
 	}
 
@@ -706,7 +721,7 @@
 	{
 		position: relative;
 		width: 100%; 
-		background: #212121 url('images/overlay.png') repeat;
+		background: #fbf7f7;
 	}
 	
 		#banner-wrapper:before
@@ -732,6 +747,7 @@
 	
 	#main-wrapper
 	{
+		padding: 8% 5% 5% 5%;
 		position: relative;
 		background: #FFFFFF;
 	}
@@ -744,6 +760,7 @@
 	#footer-wrapper
 	{
 		position: relative;
+		background:#23282d url('images/overlay.png') repeat;
 	}
 	
 /*********************************************************************************/
@@ -787,9 +804,24 @@
 	
 		#featured h3
 		{
-			font-weight: 300;
+			font-weight: 500;
 		}
-
+	
+		#featured a
+		{
+			color: #000000;
+			text-decoration:none;
+			font-size: 16px;
+		}
+		
+		#featured footer a
+		{
+			color: #FFFFFF;
+			text-decoration:none;
+			font-size: 16px;
+			width: 100%;
+		}
+	
 /*********************************************************************************/
 /* Footer                                                                        */
 /*********************************************************************************/
