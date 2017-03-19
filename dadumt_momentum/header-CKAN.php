@@ -7,6 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta property="fb:app_id" content="<?php echo of_get_option('FBComments_AppID'); ?>" />
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<title>
 			<?php
 			if (is_home()) {
@@ -24,7 +25,7 @@
 		<script src="<?php bloginfo('template_directory') ?>/assets/js/skel.min.js"></script>
 		<script src="<?php bloginfo('template_directory') ?>/assets/js/skel-layers.min.js"></script>
 		<script src="<?php bloginfo('template_directory') ?>/assets/js/init.js"></script>
-
+		<script src="<?php bloginfo('template_directory') ?>/assets/js/imagelightbox.min.js"></script>
 		
 		<noscript>
 			<link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/assets/css/skel.css" />

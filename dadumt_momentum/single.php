@@ -53,13 +53,11 @@
 							<?php the_content(); ?>
 						<?php endwhile; ?>
 						
-						<?php if (comments_open()): ?>
-						<?php if (of_get_option('FBComments_single_checkbox') == 1): ?>
+						<?php if (of_get_option('FBComments_single_checkbox') == 1 && comments_open()): ?>
 						<br>
 						<!-- Start Facebook Comments -->
 						<div class="fb-comments" data-href="<?php the_permalink() ?>" data-width="100%" data-numposts="<?php echo of_get_option('FBComments_number'); ?>" data-colorscheme="<?php echo of_get_option('FBComments_colorscheme'); ?>" ></div>
 						<!-- End Facebook Comments -->
-						<?php endif; ?>
 						<?php endif; ?>
 					</article>
 				</div>

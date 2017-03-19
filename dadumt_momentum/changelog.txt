@@ -1,9 +1,33 @@
 ﻿# Change Log
 
+##[0.3.5] - 2017-03-19
+###Added
+新增CKAN搜尋資料集 page樣板
+新增CKAN資料集資源展示 page樣板
+###Changed
+變更page-305.php 名稱為page-CustumHTMLTag.php
+
+##[0.3.4] - 2017-02-19
+###Added
+新增顯示 wpckan 資料集數量功能
+index.php 新增 wpckan 資料集數量資訊
+新增 index-ckandataset.php
+新增連結特效
+###Fixed
+修正 js/init.js:6-9 錯誤問題
+重新編排 theme-optionen.php
+###Changed
+變更search.php、archive.php排版
+
+##[0.3.3] - 2017-01-02
+###Added
+新增 Wordpress 4.7 後台佈景主題編輯 img局部刷新功能
+###Changed
+變更index.php拆成index-slider,index-highlight,index-news.php 三個檔案
 
 ##[0.3.2] - 2017-01-01
 ###Added
-新增 Wordpress 4.7 後台佈景主題編輯 局部刷新功能
+新增 Wordpress 4.7 後台佈景主題編輯 文字局部刷新功能
 
 ##[0.3.1] - 2016-12-31
 ###Added

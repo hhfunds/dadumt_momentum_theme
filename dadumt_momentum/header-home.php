@@ -24,7 +24,9 @@
 		<script src="<?php bloginfo('template_directory') ?>/assets/js/skel.min.js"></script>
 		<script src="<?php bloginfo('template_directory') ?>/assets/js/skel-layers.min.js"></script>
 		<script src="<?php bloginfo('template_directory') ?>/assets/js/init.js"></script>
-
+		<?php if (momentum_ckan_status()): ?>
+		<script src="<?php bloginfo('template_directory') ?>/assets/js/jquery-numerator.js"></script>
+		<?php endif; ?>
 		
 		<noscript>
 			<link rel="stylesheet" href="<?php bloginfo('template_directory') ?>/assets/css/skel.css" />

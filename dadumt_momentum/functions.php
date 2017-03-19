@@ -357,4 +357,28 @@ function momentum_customizer_live_preview()
 }
 add_action( 'customize_preview_init', 'momentum_customizer_live_preview' );
 
+//CKAN status check
+function momentum_ckan_status()
+{
+	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+	if( is_plugin_active('wpckan/wpckan.php') && is_plugin_active('dadumtckan/dadumtckan.php')){
+		if(wpckan_validate_settings_read()){
+			return true;
+		} 
+	}
+		
+	return false;
+	
+}
+
+function momentum_ckan_error()
+{
+	include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+	if(is_plugin_inactive('wpckan/wpckan.php')){
+		echo 'Something went wrong, Please check and active wpckan plugin.';
+	}elseif(!wpckan_validate_settings_read()){
+		echo 'The wpckan plugin is actived but something went wrong, check your connection details.';
+		}
+}
+
 ?>
