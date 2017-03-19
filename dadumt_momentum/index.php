@@ -2,8 +2,8 @@
 /* 
  * Momentum dadumt Theme based on the HTML template Momentum from http://pixelarity.com
  * Modified by Z.yao
- * Version: 0.3.1
- * Date: 2017-12-31
+ * Version: 0.3.2
+ * Date: 2017-01-01
  * Licensed: http://pixelarity.com/license
  */
 ?>
@@ -202,7 +202,6 @@
 						</section>
 					</div>
 					
-					<?php if (!empty(of_get_option('news_6_link'))): ?>
 					<div class="3u">
 						<section id="news_6_picture">
 							<img class="image fit" src="<?php echo of_get_option('news_6_picture'); ?>" alt="">
@@ -213,7 +212,6 @@
 							</footer>
 						</section>
 					</div>
-					<?php endif; ?>
 					
 				</div>
 			</div>

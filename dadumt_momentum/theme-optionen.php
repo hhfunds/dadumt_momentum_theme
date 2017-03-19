@@ -13,6 +13,11 @@ function momentum_dadumt_customize_register($wp_customize){
 		
 		
 		/* Start Momentum Slider Options */
+		$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
+		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+		$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+		$wp_customize->get_setting( 'background_color' )->transport = 'postMessage';
+		$wp_customize->get_setting( 'header_image' )->transport = 'postMessage';
 		$wp_customize->selective_refresh->add_partial( 'header_image', array(
 		'selector' => '#header_image',
 		));	
@@ -38,8 +43,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			'selector' => '.slide',
 			));	
 			$wp_customize->add_setting('momentum[slider_picture1]', array(
-			'default'           => 'image.jpg',
-			'type'           => 'option',
+			'default' => 'image.jpg',
+			'type' => 'option',
 			));
 			$wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'slider_picture1', array(
 			'label'    => __('Slider1', 'momentum'),
@@ -50,7 +55,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[slider_picture1_title]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
 			));
 			$wp_customize->add_control('momentum[slider_picture1_title]', array(
 				'description' => sprintf(__('標題', 'momentum')),
@@ -60,7 +65,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[slider_picture1_content]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
 			));
 			$wp_customize->add_control('momentum[slider_picture1_content]', array(
 				'description' => sprintf(__('說明', 'momentum')),
@@ -124,7 +129,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[slider_picture3_content]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
 			));
 			$wp_customize->add_control('momentum[slider_picture3_content]', array(
 				'description' => sprintf(__('內容', 'momentum')),
@@ -168,7 +173,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[highlight_1_title]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control('momentum[highlight_1_title]', array(
 				'description' => sprintf(__('標題', 'momentum')),
@@ -177,11 +183,15 @@ function momentum_dadumt_customize_register($wp_customize){
 			));
 			$wp_customize->selective_refresh->add_partial( 'momentum[highlight_1_title]', array(
 			'selector' => '#highlight_1_title',
-			));
+			'render_callback' => function() {
+					echo of_get_option('highlight_1_title');
+				},
+			));	
 			
 			$wp_customize->add_setting('momentum[highlight_1_content]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control('momentum[highlight_1_content]', array(
 				'description' => sprintf(__('說明', 'momentum')),
@@ -190,11 +200,14 @@ function momentum_dadumt_customize_register($wp_customize){
 			));
 			$wp_customize->selective_refresh->add_partial( 'momentum[highlight_1_content]', array(
 			'selector' => '#highlight_1_content',
-			));
+			'render_callback' => function() {
+					echo of_get_option('highlight_1_content');
+				},
+			));	
 			
 			$wp_customize->add_setting('momentum[highlight_1_link]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
 			));
 			$wp_customize->add_control('momentum[highlight_1_link]', array(
 				'description' => sprintf(__('連結', 'momentum')),
@@ -220,6 +233,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[highlight_2_title]', array(
 				'default'        => '',
 				'type'           => 'option',
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control('momentum[highlight_2_title]', array(
 				'description' => sprintf(__('標題', 'momentum')),
@@ -228,11 +242,15 @@ function momentum_dadumt_customize_register($wp_customize){
 			));
 			$wp_customize->selective_refresh->add_partial( 'momentum[highlight_2_title]', array(
 			'selector' => '#highlight_2_title',
-			));
+			'render_callback' => function() {
+					echo of_get_option('highlight_2_title');
+				},
+			));	
 			
 			$wp_customize->add_setting('momentum[highlight_2_content]', array(
 				'default'        => '',
 				'type'           => 'option',
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control('momentum[highlight_2_content]', array(
 				'description' => sprintf(__('內容', 'momentum')),
@@ -241,11 +259,14 @@ function momentum_dadumt_customize_register($wp_customize){
 			));
 			$wp_customize->selective_refresh->add_partial( 'momentum[highlight_2_content]', array(
 			'selector' => '#highlight_2_content',
-			));
+			'render_callback' => function() {
+					echo of_get_option('highlight_2_content');
+				},
+			));		
 			
 			$wp_customize->add_setting('momentum[highlight_2_link]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
 			));
 			$wp_customize->add_control('momentum[highlight_2_link]', array(
 				'description' => sprintf(__('連結', 'momentum')),
@@ -271,6 +292,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[highlight_3_title]', array(
 				'default'        => '',
 				'type'           => 'option',
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control('momentum[highlight_3_title]', array(
 				'description' => sprintf(__('標題', 'momentum')),
@@ -279,11 +301,15 @@ function momentum_dadumt_customize_register($wp_customize){
 			));
 			$wp_customize->selective_refresh->add_partial( 'momentum[highlight_3_title]', array(
 			'selector' => '#highlight_3_title',
-			));
+			'render_callback' => function() {
+					echo of_get_option('highlight_3_title');
+				},
+			));	
 			
 			$wp_customize->add_setting('momentum[highlight_3_content]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control('momentum[highlight_3_content]', array(
 				'description' => sprintf(__('內容', 'momentum')),
@@ -292,11 +318,14 @@ function momentum_dadumt_customize_register($wp_customize){
 			));
 			$wp_customize->selective_refresh->add_partial( 'momentum[highlight_3_content]', array(
 			'selector' => '#highlight_3_content',
-			));
+			'render_callback' => function() {
+					echo of_get_option('highlight_3_content');
+				},
+			));	
 			
 			$wp_customize->add_setting('momentum[highlight_3_link]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',				
 			));
 			$wp_customize->add_control('momentum[highlight_3_link]', array(
 				'description' => sprintf(__('連結', 'momentum')),
@@ -330,7 +359,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[news_1_title]', array(
 				'default'        => '',
 				'type'           => 'option',
-				'transport'      => 'postMessage'				
+				'transport'      => 'postMessage',			
 			));
 			$wp_customize->add_control('momentum[news_1_title]', array(
 				'description' => sprintf(__('標題', 'momentum')),
@@ -339,11 +368,14 @@ function momentum_dadumt_customize_register($wp_customize){
 			));
 			$wp_customize->selective_refresh->add_partial( 'momentum[news_1_title]', array(
 			'selector' => '#news_1_title',
+			'render_callback' => function() {
+					echo of_get_option('news_1_title');
+				},
 			));
 			
 			$wp_customize->add_setting('momentum[news_1_link]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',			
 			));
 			$wp_customize->add_control('momentum[news_1_link]', array(
 				'description' => sprintf(__('連結', 'momentum')),
@@ -353,7 +385,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[news_1_content]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[news_1_content]', array(
 				'description' => sprintf(__('內容', 'momentum')),
@@ -362,11 +395,14 @@ function momentum_dadumt_customize_register($wp_customize){
 			));
 			$wp_customize->selective_refresh->add_partial( 'momentum[news_1_content]', array(
 			'selector' => '#news_1_content',
+			'render_callback' => function() {
+					echo of_get_option('news_1_content');
+				},
 			));
 			
 			$wp_customize->add_setting('momentum[news_1_link2]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',				
 			));
 			$wp_customize->add_control('momentum[news_1_link2]', array(
 				'description' => sprintf(__('內容連結', 'momentum')),
@@ -378,6 +414,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[news_2_picture]', array(
 			'default'           => 'image.jpg',
 			'type'           => 'option',
+			'transport' => 'postMessage',	
 			));
 			$wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'news_2_picture', array(
 			'label'    => __('News2', 'momentum'),
@@ -392,6 +429,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[news_2_title]', array(
 				'default'        => '',
 				'type'           => 'option',
+				'transport' => 'postMessage',	
 			));
 			$wp_customize->add_control('momentum[news_2_title]', array(
 				'description' => sprintf(__('標題', 'momentum')),
@@ -400,11 +438,14 @@ function momentum_dadumt_customize_register($wp_customize){
 			));
 			$wp_customize->selective_refresh->add_partial( 'momentum[news_2_title]', array(
 			'selector' => '#news_2_title',
+			'render_callback' => function() {
+					echo of_get_option('news_2_title');
+				},
 			));
 			
 			$wp_customize->add_setting('momentum[news_2_link]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',			
 			));
 			$wp_customize->add_control('momentum[news_2_link]', array(
 				'description' => sprintf(__('連結', 'momentum')),
@@ -415,6 +456,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[news_2_content]', array(
 				'default'        => '',
 				'type'           => 'option',
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control('momentum[news_2_content]', array(
 				'description' => sprintf(__('內容', 'momentum')),
@@ -423,11 +465,14 @@ function momentum_dadumt_customize_register($wp_customize){
 			));
 			$wp_customize->selective_refresh->add_partial( 'momentum[news_2_content]', array(
 			'selector' => '#news_2_content',
+			'render_callback' => function() {
+					echo of_get_option('news_2_content');
+				},
 			));
 			
 			$wp_customize->add_setting('momentum[news_2_link2]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',			
 			));
 			$wp_customize->add_control('momentum[news_2_link2]', array(
 				'description' => sprintf(__('內容連結', 'momentum')),
@@ -453,6 +498,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[news_3_title]', array(
 				'default'        => '',
 				'type'           => 'option',
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control('momentum[news_3_title]', array(
 				'description' => sprintf(__('標題', 'momentum')),
@@ -461,11 +507,14 @@ function momentum_dadumt_customize_register($wp_customize){
 			));
 			$wp_customize->selective_refresh->add_partial( 'momentum[news_3_title]', array(
 			'selector' => '#news_3_title',
+			'render_callback' => function() {
+					echo of_get_option('news_3_title');
+				},
 			));
 			
 			$wp_customize->add_setting('momentum[news_3_link]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',			
 			));
 			$wp_customize->add_control('momentum[news_3_link]', array(
 				'description' => sprintf(__('連結', 'momentum')),
@@ -475,7 +524,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[news_3_content]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[news_3_content]', array(
 				'description' => sprintf(__('內容', 'momentum')),
@@ -484,11 +534,14 @@ function momentum_dadumt_customize_register($wp_customize){
 			));
 			$wp_customize->selective_refresh->add_partial( 'momentum[news_3_content]', array(
 			'selector' => '#news_3_content',
+			'render_callback' => function() {
+					echo of_get_option('news_3_content');
+				},
 			));
 			
 			$wp_customize->add_setting('momentum[news_3_link2]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',			
 			));
 			$wp_customize->add_control('momentum[news_3_link2]', array(
 				'description' => sprintf(__('內容連結', 'momentum')),
@@ -513,7 +566,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[news_4_title]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[news_4_title]', array(
 				'description' => sprintf(__('標題', 'momentum')),
@@ -522,11 +576,14 @@ function momentum_dadumt_customize_register($wp_customize){
 			));
 			$wp_customize->selective_refresh->add_partial( 'momentum[news_4_title]', array(
 			'selector' => '#news_4_title',
+			'render_callback' => function() {
+					echo of_get_option('news_4_title');
+				},
 			));
 			
 			$wp_customize->add_setting('momentum[news_4_link]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',			
 			));
 			$wp_customize->add_control('momentum[news_4_link]', array(
 				'description' => sprintf(__('連結', 'momentum')),
@@ -536,7 +593,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[news_4_content]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[news_4_content]', array(
 				'description' => sprintf(__('內容', 'momentum')),
@@ -545,11 +603,14 @@ function momentum_dadumt_customize_register($wp_customize){
 			));
 			$wp_customize->selective_refresh->add_partial( 'momentum[news_4_content]', array(
 			'selector' => '#news_4_content',
+			'render_callback' => function() {
+					echo of_get_option('news_4_content');
+				},
 			));
 			
 			$wp_customize->add_setting('momentum[news_4_link2]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',			
 			));
 			$wp_customize->add_control('momentum[news_4_link2]', array(
 				'description' => sprintf(__('內容連結', 'momentum')),
@@ -574,7 +635,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[news_5_title]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[news_5_title]', array(
 				'description' => sprintf(__('標題', 'momentum')),
@@ -583,11 +645,14 @@ function momentum_dadumt_customize_register($wp_customize){
 			));
 			$wp_customize->selective_refresh->add_partial( 'momentum[news_5_title]', array(
 			'selector' => '#news_5_title',
+			'render_callback' => function() {
+					echo of_get_option('news_5_title');
+				},
 			));
 			
 			$wp_customize->add_setting('momentum[news_5_link]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',			
 			));
 			$wp_customize->add_control('momentum[news_5_link]', array(
 				'description' => sprintf(__('連結', 'momentum')),
@@ -598,6 +663,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[news_5_content]', array(
 				'default'        => '',
 				'type'           => 'option',		 
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control('momentum[news_5_content]', array(
 				'description' => sprintf(__('內容', 'momentum')),
@@ -606,11 +672,14 @@ function momentum_dadumt_customize_register($wp_customize){
 			));
 			$wp_customize->selective_refresh->add_partial( 'momentum[news_5_content]', array(
 			'selector' => '#news_5_content',
+			'render_callback' => function() {
+					echo of_get_option('news_5_content');
+				},
 			));
 			
 			$wp_customize->add_setting('momentum[news_5_link2]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
 			));
 			$wp_customize->add_control('momentum[news_5_link2]', array(
 				'description' => sprintf(__('內容連結', 'momentum')),
@@ -635,7 +704,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[news_6_title]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[news_6_title]', array(
 				'description' => sprintf(__('標題', 'momentum')),
@@ -644,11 +714,14 @@ function momentum_dadumt_customize_register($wp_customize){
 			));
 			$wp_customize->selective_refresh->add_partial( 'momentum[news_6_title]', array(
 			'selector' => '#news_6_title',
+			'render_callback' => function() {
+					echo of_get_option('news_6_title');
+				},
 			));
 			
 			$wp_customize->add_setting('momentum[news_6_link]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',			
 			));
 			$wp_customize->add_control('momentum[news_6_link]', array(
 				'description' => sprintf(__('連結', 'momentum')),
@@ -658,7 +731,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[news_6_content]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[news_6_content]', array(
 				'description' => sprintf(__('內容', 'momentum')),
@@ -667,11 +741,14 @@ function momentum_dadumt_customize_register($wp_customize){
 			));
 			$wp_customize->selective_refresh->add_partial( 'momentum[news_6_content]', array(
 			'selector' => '#news_6_content',
+			'render_callback' => function() {
+					echo of_get_option('news_6_content');
+				},
 			));
 			
 			$wp_customize->add_setting('momentum[news_6_link2]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',			
 			));
 			$wp_customize->add_control('momentum[news_6_link2]', array(
 				'description' => sprintf(__('內容連結', 'momentum')),
@@ -691,6 +768,7 @@ function momentum_dadumt_customize_register($wp_customize){
 					'default' => 0,
 					'type' => 'option',
 					'sanitize_callback' => 'momentum_sanitize_checkbox',
+					'transport' => 'postMessage',
 			));
 			$wp_customize->add_control( 'momentum[project_checkbox]', array(
 					'label'	=> 'Check if you want to enable project wrapper', 'momentum',
@@ -703,6 +781,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[project_1_picture]', array(
 			'default'           => 'image.jpg',
 			'type'           => 'option',
+			'transport' => 'postMessage',
 			));
 			$wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'project_1_picture', array(
 			'label'    => __('Project1', 'momentum'),
@@ -716,7 +795,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[project_1_title]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[project_1_title]', array(
 				'description' => sprintf(__('標題', 'momentum')),
@@ -729,7 +809,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[project_1_content]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[project_1_content]', array(
 				'description' => sprintf(__('說明', 'momentum')),
@@ -742,7 +823,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[project_1_link]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[project_1_link]', array(
 				'description' => sprintf(__('連結', 'momentum')),
@@ -757,6 +839,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[project_2_picture]', array(
 			'default'           => 'image.jpg',
 			'type'           => 'option',
+			'transport' => 'postMessage',
 			));
 			$wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'project_2_picture', array(
 			'label'    => __('Project2', 'momentum'),
@@ -768,6 +851,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[project_2_title]', array(
 				'default'        => '',
 				'type'           => 'option',
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control('momentum[project_2_title]', array(
 				'description' => sprintf(__('標題', 'momentum')),
@@ -778,6 +862,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[project_2_content]', array(
 				'default'        => '',
 				'type'           => 'option',
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control('momentum[project_2_content]', array(
 				'description' => sprintf(__('內容', 'momentum')),
@@ -787,7 +872,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[project_2_link]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[project_2_link]', array(
 				'description' => sprintf(__('連結', 'momentum')),
@@ -799,6 +885,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[project_3_picture]', array(
 			'default'           => 'image.jpg',
 			'type'           => 'option',
+			'transport' => 'postMessage',
 			));
 			$wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'project_3_picture', array(
 			'label'    => __('Project3', 'momentum'),
@@ -810,6 +897,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[project_3_title]', array(
 				'default'        => '',
 				'type'           => 'option',
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control('momentum[project_3_title]', array(
 				'description' => sprintf(__('標題', 'momentum')),
@@ -819,7 +907,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[project_3_content]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[project_3_content]', array(
 				'description' => sprintf(__('內容', 'momentum')),
@@ -829,7 +918,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[project_3_link]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[project_3_link]', array(
 				'description' => sprintf(__('連結', 'momentum')),
@@ -841,6 +931,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[project_4_picture]', array(
 			'default'           => 'image.jpg',
 			'type'           => 'option',
+			'transport' => 'postMessage',
 			));
 			$wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'project_4_picture', array(
 			'label'    => __('Project4', 'momentum'),
@@ -852,6 +943,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[project_4_title]', array(
 				'default'        => '',
 				'type'           => 'option',
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control('momentum[project_4_title]', array(
 				'description' => sprintf(__('標題', 'momentum')),
@@ -861,7 +953,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[project_4_content]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[project_4_content]', array(
 				'description' => sprintf(__('內容', 'momentum')),
@@ -871,7 +964,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[project_4_link]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[project_4_link]', array(
 				'description' => sprintf(__('連結', 'momentum')),
@@ -883,6 +977,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[project_5_picture]', array(
 			'default'           => 'image.jpg',
 			'type'           => 'option',
+			'transport' => 'postMessage',
 			));
 			$wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'project_5_picture', array(
 			'label'    => __('Project5', 'momentum'),
@@ -894,6 +989,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[project_5_title]', array(
 				'default'        => '',
 				'type'           => 'option',
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control('momentum[project_5_title]', array(
 				'description' => sprintf(__('標題', 'momentum')),
@@ -903,7 +999,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[project_5_content]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[project_5_content]', array(
 				'description' => sprintf(__('內容', 'momentum')),
@@ -913,7 +1010,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[project_5_link]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[project_5_link]', array(
 				'description' => sprintf(__('連結', 'momentum')),
@@ -925,6 +1023,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[project_6_picture]', array(
 			'default'           => 'image.jpg',
 			'type'           => 'option',
+			'transport' => 'postMessage',
 			));
 			$wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'project_6_picture', array(
 			'label'    => __('Project6', 'momentum'),
@@ -936,6 +1035,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[project_6_title]', array(
 				'default'        => '',
 				'type'           => 'option',
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control('momentum[project_6_title]', array(
 				'description' => sprintf(__('標題', 'momentum')),
@@ -945,7 +1045,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[project_6_content]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[project_6_content]', array(
 				'description' => sprintf(__('內容', 'momentum')),
@@ -955,7 +1056,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[project_6_link]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[project_6_link]', array(
 				'description' => sprintf(__('連結', 'momentum')),
@@ -967,6 +1069,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[project_7_picture]', array(
 			'default'           => 'image.jpg',
 			'type'           => 'option',
+			'transport' => 'postMessage',
 			));
 			$wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'project_7_picture', array(
 			'label'    => __('Project7', 'momentum'),
@@ -978,6 +1081,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[project_7_title]', array(
 				'default'        => '',
 				'type'           => 'option',
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control('momentum[project_7_title]', array(
 				'description' => sprintf(__('標題', 'momentum')),
@@ -987,7 +1091,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[project_7_content]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[project_7_content]', array(
 				'description' => sprintf(__('內容', 'momentum')),
@@ -997,7 +1102,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[project_7_link]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport' => 'postMessage',				
 			));
 			$wp_customize->add_control('momentum[project_7_link]', array(
 				'description' => sprintf(__('連結', 'momentum')),
@@ -1017,6 +1123,7 @@ function momentum_dadumt_customize_register($wp_customize){
 				'default' => 0,
 				'type' => 'option',
 				'sanitize_callback' => 'momentum_sanitize_checkbox',
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control( 'momentum[FBComments_single_checkbox]', array(
 				'label'	=> 'Check if you want to enable posts facebook comments frame',
@@ -1029,6 +1136,7 @@ function momentum_dadumt_customize_register($wp_customize){
 				'default' => 0,
 				'type' => 'option',
 				'sanitize_callback' => 'momentum_sanitize_checkbox',
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control( 'momentum[FBComments_page_checkbox]', array(
 				'label'	=> 'Check if you want to enable pages facebook comments frame',
@@ -1039,7 +1147,8 @@ function momentum_dadumt_customize_register($wp_customize){
 			
 			$wp_customize->add_setting('momentum[FBComments_AppID]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',	
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control('momentum[FBComments_AppID]', array(
 				'label' => 'Set Facebook App ID',
@@ -1051,7 +1160,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[FBComments_colorscheme]', array(
 				'default'        => 'light',
 				'type'           => 'option',
-		 
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control( 'momentum[FBComments_colorscheme]', array(
 				'label'   => 'Color Scheme:',
@@ -1066,7 +1175,7 @@ function momentum_dadumt_customize_register($wp_customize){
 			$wp_customize->add_setting('momentum[FBComments_number]', array(
 				'default'        => '5',
 				'type'           => 'option',
-		 
+				'transport' => 'postMessage',
 			));
 			$wp_customize->add_control( 'momentum[FBComments_number]', array(
 				'label'   => 'Number of Comments:',

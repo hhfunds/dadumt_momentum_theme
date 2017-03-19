@@ -1,4 +1,14 @@
 <?php
+
+/**
+ * Momentum only works in WordPress 4.7 or later.
+ */
+if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
+	require get_template_directory() . '/back-compat.php';
+	return;
+}
+
+
 require get_template_directory() . '/theme-optionen.php';
 
 
@@ -326,29 +336,25 @@ function of_get_option( $name, $default = false ) {
 endif;
 
 //Change http required to https
-function my_content_manipulator($content){
+function momentum_content_manipulator($content){
     if( is_ssl() ){
         $content = str_replace('http://dadumt.honghuafund.org/wp-content/uploads', 'https://dadumt.honghuafund.org/wp-content/uploads', $content);
     }
     return $content;
 }
-add_filter('the_content', 'my_content_manipulator');
+add_filter('the_content', 'momentum_content_manipulator');
 
-/**
- * Used by hook: 'customize_preview_init'
- * 
- * @see add_action('customize_preview_init',$func)
- */
-function momentum_dadumt_customizer_live_preview()
+
+function momentum_customizer_live_preview()
 {
 	wp_enqueue_script( 
-		  'momentum_dadumt-themecustomizer',			//Give the script an ID
-		  get_template_directory_uri().'/assets/js/theme-customizer.js',//Point to file
-		  array( 'jquery','customize-preview' ),	//Define dependencies
-		  '',						//Define a version (optional) 
-		  true						//Put script in footer?
+		  'mytheme-themecustomizer',
+		  get_template_directory_uri().'/assets/js/theme-customizer.js',
+		  array( 'jquery','customize-preview' ),
+		  '',
+		  true
 	);
 }
-add_action( 'customize_preview_init', 'momentum_dadumt_customizer_live_preview' );
+add_action( 'customize_preview_init', 'momentum_customizer_live_preview' );
 
 ?>
