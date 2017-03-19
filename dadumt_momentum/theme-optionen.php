@@ -1,6 +1,6 @@
 <?php 
 
-function themename_customize_register($wp_customize){
+function momentum_dadumt_customize_register($wp_customize){
     $wp_customize->remove_section( 'static_front_page' );
 	$wp_customize->remove_section( 'colors' );
 	
@@ -11,7 +11,12 @@ function themename_customize_register($wp_customize){
         'priority' => 10 // Mixed with top-level-section hierarchy.
     ));
 		
+		
 		/* Start Momentum Slider Options */
+		$wp_customize->selective_refresh->add_partial( 'header_image', array(
+		'selector' => '#header_image',
+		));	
+		
         $wp_customize->add_section('momentum_slider_options', array(
             'title' => __('Slider Options', 'momentum'),
             'priority' => 30,
@@ -29,6 +34,9 @@ function themename_customize_register($wp_customize){
 					'type'      => 'checkbox',
 			));
 			/* Start Momentum Slider1 Options */
+			$wp_customize->selective_refresh->add_partial( 'momentum[slider_picture1]', array(
+			'selector' => '.slide',
+			));	
 			$wp_customize->add_setting('momentum[slider_picture1]', array(
 			'default'           => 'image.jpg',
 			'type'           => 'option',
@@ -154,6 +162,9 @@ function themename_customize_register($wp_customize){
 			'section'  => 'momentum_highlight_options',
 			'settings' => 'momentum[highlight_1_picture]',
 			)));
+			$wp_customize->selective_refresh->add_partial( 'momentum[highlight_1_picture]', array(
+			'selector' => '#highlight_1_picture.image.fit',
+			));
 			
 			$wp_customize->add_setting('momentum[highlight_1_title]', array(
 				'default'        => '',
@@ -164,6 +175,9 @@ function themename_customize_register($wp_customize){
 				'section'    => 'momentum_highlight_options',
 				'settings'   => 'momentum[highlight_1_title]',
 			));
+			$wp_customize->selective_refresh->add_partial( 'momentum[highlight_1_title]', array(
+			'selector' => '#highlight_1_title',
+			));
 			
 			$wp_customize->add_setting('momentum[highlight_1_content]', array(
 				'default'        => '',
@@ -173,6 +187,9 @@ function themename_customize_register($wp_customize){
 				'description' => sprintf(__('說明', 'momentum')),
 				'section'    => 'momentum_highlight_options',
 				'settings'   => 'momentum[highlight_1_content]',
+			));
+			$wp_customize->selective_refresh->add_partial( 'momentum[highlight_1_content]', array(
+			'selector' => '#highlight_1_content',
 			));
 			
 			$wp_customize->add_setting('momentum[highlight_1_link]', array(
@@ -196,6 +213,9 @@ function themename_customize_register($wp_customize){
 			'section'  => 'momentum_highlight_options',
 			'settings' => 'momentum[highlight_2_picture]',
 			)));
+			$wp_customize->selective_refresh->add_partial( 'momentum[highlight_2_picture]', array(
+			'selector' => '#highlight_2_picture.image.fit',
+			));
 			
 			$wp_customize->add_setting('momentum[highlight_2_title]', array(
 				'default'        => '',
@@ -206,6 +226,9 @@ function themename_customize_register($wp_customize){
 				'section'    => 'momentum_highlight_options',
 				'settings'   => 'momentum[highlight_2_title]',
 			));
+			$wp_customize->selective_refresh->add_partial( 'momentum[highlight_2_title]', array(
+			'selector' => '#highlight_2_title',
+			));
 			
 			$wp_customize->add_setting('momentum[highlight_2_content]', array(
 				'default'        => '',
@@ -215,6 +238,9 @@ function themename_customize_register($wp_customize){
 				'description' => sprintf(__('內容', 'momentum')),
 				'section'    => 'momentum_highlight_options',
 				'settings'   => 'momentum[highlight_2_content]',
+			));
+			$wp_customize->selective_refresh->add_partial( 'momentum[highlight_2_content]', array(
+			'selector' => '#highlight_2_content',
 			));
 			
 			$wp_customize->add_setting('momentum[highlight_2_link]', array(
@@ -238,6 +264,9 @@ function themename_customize_register($wp_customize){
 			'section'  => 'momentum_highlight_options',
 			'settings' => 'momentum[highlight_3_picture]',
 			)));
+			$wp_customize->selective_refresh->add_partial( 'momentum[highlight_3_picture]', array(
+			'selector' => '#highlight_3_picture.image.fit',
+			));
 			
 			$wp_customize->add_setting('momentum[highlight_3_title]', array(
 				'default'        => '',
@@ -248,6 +277,9 @@ function themename_customize_register($wp_customize){
 				'section'    => 'momentum_highlight_options',
 				'settings'   => 'momentum[highlight_3_title]',
 			));
+			$wp_customize->selective_refresh->add_partial( 'momentum[highlight_3_title]', array(
+			'selector' => '#highlight_3_title',
+			));
 			
 			$wp_customize->add_setting('momentum[highlight_3_content]', array(
 				'default'        => '',
@@ -257,6 +289,9 @@ function themename_customize_register($wp_customize){
 				'description' => sprintf(__('內容', 'momentum')),
 				'section'    => 'momentum_highlight_options',
 				'settings'   => 'momentum[highlight_3_content]',
+			));
+			$wp_customize->selective_refresh->add_partial( 'momentum[highlight_3_content]', array(
+			'selector' => '#highlight_3_content',
 			));
 			
 			$wp_customize->add_setting('momentum[highlight_3_link]', array(
@@ -288,25 +323,22 @@ function themename_customize_register($wp_customize){
 			'section'  => 'momentum_news_options',
 			'settings' => 'momentum[news_1_picture]',
 			)));
+			$wp_customize->selective_refresh->add_partial( 'momentum[news_1_picture]', array(
+			'selector' => '#news_1_picture',
+			));
 			
 			$wp_customize->add_setting('momentum[news_1_title]', array(
 				'default'        => '',
-				'type'           => 'option',		 
+				'type'           => 'option',
+				'transport'      => 'postMessage'				
 			));
 			$wp_customize->add_control('momentum[news_1_title]', array(
 				'description' => sprintf(__('標題', 'momentum')),
 				'section'    => 'momentum_news_options',
 				'settings'   => 'momentum[news_1_title]',
 			));
-			
-			$wp_customize->add_setting('momentum[news_1_content]', array(
-				'default'        => '',
-				'type'           => 'option',		 
-			));
-			$wp_customize->add_control('momentum[news_1_content]', array(
-				'description' => sprintf(__('說明', 'momentum')),
-				'section'    => 'momentum_news_options',
-				'settings'   => 'momentum[news_1_content]',
+			$wp_customize->selective_refresh->add_partial( 'momentum[news_1_title]', array(
+			'selector' => '#news_1_title',
 			));
 			
 			$wp_customize->add_setting('momentum[news_1_link]', array(
@@ -319,12 +351,25 @@ function themename_customize_register($wp_customize){
 				'settings'   => 'momentum[news_1_link]',
 			));
 			
+			$wp_customize->add_setting('momentum[news_1_content]', array(
+				'default'        => '',
+				'type'           => 'option',		 
+			));
+			$wp_customize->add_control('momentum[news_1_content]', array(
+				'description' => sprintf(__('內容', 'momentum')),
+				'section'    => 'momentum_news_options',
+				'settings'   => 'momentum[news_1_content]',
+			));
+			$wp_customize->selective_refresh->add_partial( 'momentum[news_1_content]', array(
+			'selector' => '#news_1_content',
+			));
+			
 			$wp_customize->add_setting('momentum[news_1_link2]', array(
 				'default'        => '',
 				'type'           => 'option',		 
 			));
 			$wp_customize->add_control('momentum[news_1_link2]', array(
-				'description' => sprintf(__('副標題連結', 'momentum')),
+				'description' => sprintf(__('內容連結', 'momentum')),
 				'section'    => 'momentum_news_options',
 				'settings'   => 'momentum[news_1_link2]',
 			));
@@ -340,6 +385,9 @@ function themename_customize_register($wp_customize){
 			'section'  => 'momentum_news_options',
 			'settings' => 'momentum[news_2_picture]',
 			)));
+			$wp_customize->selective_refresh->add_partial( 'momentum[news_2_picture]', array(
+			'selector' => '#news_2_picture',
+			));
 			
 			$wp_customize->add_setting('momentum[news_2_title]', array(
 				'default'        => '',
@@ -350,15 +398,8 @@ function themename_customize_register($wp_customize){
 				'section'    => 'momentum_news_options',
 				'settings'   => 'momentum[news_2_title]',
 			));
-			
-			$wp_customize->add_setting('momentum[news_2_content]', array(
-				'default'        => '',
-				'type'           => 'option',
-			));
-			$wp_customize->add_control('momentum[news_2_content]', array(
-				'description' => sprintf(__('內容', 'momentum')),
-				'section'    => 'momentum_news_options',
-				'settings'   => 'momentum[news_2_content]',
+			$wp_customize->selective_refresh->add_partial( 'momentum[news_2_title]', array(
+			'selector' => '#news_2_title',
 			));
 			
 			$wp_customize->add_setting('momentum[news_2_link]', array(
@@ -371,12 +412,25 @@ function themename_customize_register($wp_customize){
 				'settings'   => 'momentum[news_2_link]',
 			));
 			
+			$wp_customize->add_setting('momentum[news_2_content]', array(
+				'default'        => '',
+				'type'           => 'option',
+			));
+			$wp_customize->add_control('momentum[news_2_content]', array(
+				'description' => sprintf(__('內容', 'momentum')),
+				'section'    => 'momentum_news_options',
+				'settings'   => 'momentum[news_2_content]',
+			));
+			$wp_customize->selective_refresh->add_partial( 'momentum[news_2_content]', array(
+			'selector' => '#news_2_content',
+			));
+			
 			$wp_customize->add_setting('momentum[news_2_link2]', array(
 				'default'        => '',
 				'type'           => 'option',		 
 			));
 			$wp_customize->add_control('momentum[news_2_link2]', array(
-				'description' => sprintf(__('副標題連結', 'momentum')),
+				'description' => sprintf(__('內容連結', 'momentum')),
 				'section'    => 'momentum_news_options',
 				'settings'   => 'momentum[news_2_link2]',
 			));
@@ -392,6 +446,9 @@ function themename_customize_register($wp_customize){
 			'section'  => 'momentum_news_options',
 			'settings' => 'momentum[news_3_picture]',
 			)));
+			$wp_customize->selective_refresh->add_partial( 'momentum[news_3_picture]', array(
+			'selector' => '#news_3_picture',
+			));
 			
 			$wp_customize->add_setting('momentum[news_3_title]', array(
 				'default'        => '',
@@ -402,15 +459,8 @@ function themename_customize_register($wp_customize){
 				'section'    => 'momentum_news_options',
 				'settings'   => 'momentum[news_3_title]',
 			));
-			
-			$wp_customize->add_setting('momentum[news_3_content]', array(
-				'default'        => '',
-				'type'           => 'option',		 
-			));
-			$wp_customize->add_control('momentum[news_3_content]', array(
-				'description' => sprintf(__('內容', 'momentum')),
-				'section'    => 'momentum_news_options',
-				'settings'   => 'momentum[news_3_content]',
+			$wp_customize->selective_refresh->add_partial( 'momentum[news_3_title]', array(
+			'selector' => '#news_3_title',
 			));
 			
 			$wp_customize->add_setting('momentum[news_3_link]', array(
@@ -423,12 +473,25 @@ function themename_customize_register($wp_customize){
 				'settings'   => 'momentum[news_3_link]',
 			));
 			
+			$wp_customize->add_setting('momentum[news_3_content]', array(
+				'default'        => '',
+				'type'           => 'option',		 
+			));
+			$wp_customize->add_control('momentum[news_3_content]', array(
+				'description' => sprintf(__('內容', 'momentum')),
+				'section'    => 'momentum_news_options',
+				'settings'   => 'momentum[news_3_content]',
+			));
+			$wp_customize->selective_refresh->add_partial( 'momentum[news_3_content]', array(
+			'selector' => '#news_3_content',
+			));
+			
 			$wp_customize->add_setting('momentum[news_3_link2]', array(
 				'default'        => '',
 				'type'           => 'option',		 
 			));
 			$wp_customize->add_control('momentum[news_3_link2]', array(
-				'description' => sprintf(__('副標題連結', 'momentum')),
+				'description' => sprintf(__('內容連結', 'momentum')),
 				'section'    => 'momentum_news_options',
 				'settings'   => 'momentum[news_3_link2]',
 			));
@@ -444,6 +507,9 @@ function themename_customize_register($wp_customize){
 			'section'  => 'momentum_news_options',
 			'settings' => 'momentum[news_4_picture]',
 			)));
+			$wp_customize->selective_refresh->add_partial( 'momentum[news_4_picture]', array(
+			'selector' => '#news_4_picture',
+			));
 			
 			$wp_customize->add_setting('momentum[news_4_title]', array(
 				'default'        => '',
@@ -454,15 +520,8 @@ function themename_customize_register($wp_customize){
 				'section'    => 'momentum_news_options',
 				'settings'   => 'momentum[news_4_title]',
 			));
-			
-			$wp_customize->add_setting('momentum[news_4_content]', array(
-				'default'        => '',
-				'type'           => 'option',		 
-			));
-			$wp_customize->add_control('momentum[news_4_content]', array(
-				'description' => sprintf(__('說明', 'momentum')),
-				'section'    => 'momentum_news_options',
-				'settings'   => 'momentum[news_4_content]',
+			$wp_customize->selective_refresh->add_partial( 'momentum[news_4_title]', array(
+			'selector' => '#news_4_title',
 			));
 			
 			$wp_customize->add_setting('momentum[news_4_link]', array(
@@ -475,12 +534,25 @@ function themename_customize_register($wp_customize){
 				'settings'   => 'momentum[news_4_link]',
 			));
 			
+			$wp_customize->add_setting('momentum[news_4_content]', array(
+				'default'        => '',
+				'type'           => 'option',		 
+			));
+			$wp_customize->add_control('momentum[news_4_content]', array(
+				'description' => sprintf(__('內容', 'momentum')),
+				'section'    => 'momentum_news_options',
+				'settings'   => 'momentum[news_4_content]',
+			));
+			$wp_customize->selective_refresh->add_partial( 'momentum[news_4_content]', array(
+			'selector' => '#news_4_content',
+			));
+			
 			$wp_customize->add_setting('momentum[news_4_link2]', array(
 				'default'        => '',
 				'type'           => 'option',		 
 			));
 			$wp_customize->add_control('momentum[news_4_link2]', array(
-				'description' => sprintf(__('副標題連結', 'momentum')),
+				'description' => sprintf(__('內容連結', 'momentum')),
 				'section'    => 'momentum_news_options',
 				'settings'   => 'momentum[news_4_link2]',
 			));
@@ -496,6 +568,9 @@ function themename_customize_register($wp_customize){
 			'section'  => 'momentum_news_options',
 			'settings' => 'momentum[news_5_picture]',
 			)));
+			$wp_customize->selective_refresh->add_partial( 'momentum[news_5_picture]', array(
+			'selector' => '#news_5_picture',
+			));
 			
 			$wp_customize->add_setting('momentum[news_5_title]', array(
 				'default'        => '',
@@ -506,15 +581,8 @@ function themename_customize_register($wp_customize){
 				'section'    => 'momentum_news_options',
 				'settings'   => 'momentum[news_5_title]',
 			));
-			
-			$wp_customize->add_setting('momentum[news_5_content]', array(
-				'default'        => '',
-				'type'           => 'option',		 
-			));
-			$wp_customize->add_control('momentum[news_5_content]', array(
-				'description' => sprintf(__('說明', 'momentum')),
-				'section'    => 'momentum_news_options',
-				'settings'   => 'momentum[news_5_content]',
+			$wp_customize->selective_refresh->add_partial( 'momentum[news_5_title]', array(
+			'selector' => '#news_5_title',
 			));
 			
 			$wp_customize->add_setting('momentum[news_5_link]', array(
@@ -527,12 +595,25 @@ function themename_customize_register($wp_customize){
 				'settings'   => 'momentum[news_5_link]',
 			));
 			
+			$wp_customize->add_setting('momentum[news_5_content]', array(
+				'default'        => '',
+				'type'           => 'option',		 
+			));
+			$wp_customize->add_control('momentum[news_5_content]', array(
+				'description' => sprintf(__('內容', 'momentum')),
+				'section'    => 'momentum_news_options',
+				'settings'   => 'momentum[news_5_content]',
+			));
+			$wp_customize->selective_refresh->add_partial( 'momentum[news_5_content]', array(
+			'selector' => '#news_5_content',
+			));
+			
 			$wp_customize->add_setting('momentum[news_5_link2]', array(
 				'default'        => '',
 				'type'           => 'option',		 
 			));
 			$wp_customize->add_control('momentum[news_5_link2]', array(
-				'description' => sprintf(__('副標題連結', 'momentum')),
+				'description' => sprintf(__('內容連結', 'momentum')),
 				'section'    => 'momentum_news_options',
 				'settings'   => 'momentum[news_5_link2]',
 			));
@@ -548,6 +629,9 @@ function themename_customize_register($wp_customize){
 			'section'  => 'momentum_news_options',
 			'settings' => 'momentum[news_6_picture]',
 			)));
+			$wp_customize->selective_refresh->add_partial( 'momentum[news_6_picture]', array(
+			'selector' => '#news_6_picture',
+			));
 			
 			$wp_customize->add_setting('momentum[news_6_title]', array(
 				'default'        => '',
@@ -558,15 +642,8 @@ function themename_customize_register($wp_customize){
 				'section'    => 'momentum_news_options',
 				'settings'   => 'momentum[news_6_title]',
 			));
-			
-			$wp_customize->add_setting('momentum[news_6_content]', array(
-				'default'        => '',
-				'type'           => 'option',		 
-			));
-			$wp_customize->add_control('momentum[news_6_content]', array(
-				'description' => sprintf(__('說明', 'momentum')),
-				'section'    => 'momentum_news_options',
-				'settings'   => 'momentum[news_6_content]',
+			$wp_customize->selective_refresh->add_partial( 'momentum[news_6_title]', array(
+			'selector' => '#news_6_title',
 			));
 			
 			$wp_customize->add_setting('momentum[news_6_link]', array(
@@ -579,12 +656,25 @@ function themename_customize_register($wp_customize){
 				'settings'   => 'momentum[news_6_link]',
 			));
 			
+			$wp_customize->add_setting('momentum[news_6_content]', array(
+				'default'        => '',
+				'type'           => 'option',		 
+			));
+			$wp_customize->add_control('momentum[news_6_content]', array(
+				'description' => sprintf(__('內容', 'momentum')),
+				'section'    => 'momentum_news_options',
+				'settings'   => 'momentum[news_6_content]',
+			));
+			$wp_customize->selective_refresh->add_partial( 'momentum[news_6_content]', array(
+			'selector' => '#news_6_content',
+			));
+			
 			$wp_customize->add_setting('momentum[news_6_link2]', array(
 				'default'        => '',
 				'type'           => 'option',		 
 			));
 			$wp_customize->add_control('momentum[news_6_link2]', array(
-				'description' => sprintf(__('副標題連結', 'momentum')),
+				'description' => sprintf(__('內容連結', 'momentum')),
 				'section'    => 'momentum_news_options',
 				'settings'   => 'momentum[news_6_link2]',
 			));
@@ -620,6 +710,9 @@ function themename_customize_register($wp_customize){
 			'section'  => 'momentum_project_options',
 			'settings' => 'momentum[project_1_picture]',
 			)));
+			$wp_customize->selective_refresh->add_partial( 'momentum[project_1_picture]', array(
+			'selector' => '#project_1_picture',
+			));
 			
 			$wp_customize->add_setting('momentum[project_1_title]', array(
 				'default'        => '',
@@ -629,6 +722,9 @@ function themename_customize_register($wp_customize){
 				'description' => sprintf(__('標題', 'momentum')),
 				'section'    => 'momentum_project_options',
 				'settings'   => 'momentum[project_1_title]',
+			));
+			$wp_customize->selective_refresh->add_partial( 'momentum[project_1_title]', array(
+			'selector' => '#project_1_title',
 			));
 			
 			$wp_customize->add_setting('momentum[project_1_content]', array(
@@ -640,6 +736,9 @@ function themename_customize_register($wp_customize){
 				'section'    => 'momentum_project_options',
 				'settings'   => 'momentum[project_1_content]',
 			));
+			$wp_customize->selective_refresh->add_partial( 'momentum[project_1_content]', array(
+			'selector' => '#project_1_content',
+			));
 			
 			$wp_customize->add_setting('momentum[project_1_link]', array(
 				'default'        => '',
@@ -649,6 +748,9 @@ function themename_customize_register($wp_customize){
 				'description' => sprintf(__('連結', 'momentum')),
 				'section'    => 'momentum_project_options',
 				'settings'   => 'momentum[project_1_link]',
+			));
+			$wp_customize->selective_refresh->add_partial( 'momentum[project_1_link]', array(
+			'selector' => '#project_1_link',
 			));
 			/* End Momentum Project1 Options */
 			/* Start Momentum Project2 Options */
@@ -980,7 +1082,7 @@ function themename_customize_register($wp_customize){
 		/* End Momentum Facebook Comments Options */
 }
  
-add_action('customize_register', 'themename_customize_register');
+add_action('customize_register', 'momentum_dadumt_customize_register');
 
 function momentum_sanitize_checkbox( $input ) {
     if ( $input == 1 ) {

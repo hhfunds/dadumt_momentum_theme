@@ -1,7 +1,7 @@
 <?php
 require get_template_directory() . '/theme-optionen.php';
 
-//佈景主題主要程式碼
+
 register_nav_menus(
 array(
 'primary-menu' => __( '主選單' )
@@ -11,12 +11,14 @@ array(
 //wordpress隱藏上方的工具列
 add_filter('show_admin_bar', '__return_false');
 
-//佈景主題支援特色背景
 
 if ( function_exists( 'add_theme_support' ) ) {
+//佈景主題支援特色背景
 add_theme_support( 'post-thumbnails' );
-
+//佈景主題支援自訂header
 add_theme_support( 'custom-header' );
+//佈景主題支援小工具局部刷新
+add_theme_support( 'customize-selective-refresh-widgets' );
 }
 
 
@@ -323,6 +325,7 @@ function of_get_option( $name, $default = false ) {
 }
 endif;
 
+//Change http required to https
 function my_content_manipulator($content){
     if( is_ssl() ){
         $content = str_replace('http://dadumt.honghuafund.org/wp-content/uploads', 'https://dadumt.honghuafund.org/wp-content/uploads', $content);
@@ -330,5 +333,22 @@ function my_content_manipulator($content){
     return $content;
 }
 add_filter('the_content', 'my_content_manipulator');
+
+/**
+ * Used by hook: 'customize_preview_init'
+ * 
+ * @see add_action('customize_preview_init',$func)
+ */
+function momentum_dadumt_customizer_live_preview()
+{
+	wp_enqueue_script( 
+		  'momentum_dadumt-themecustomizer',			//Give the script an ID
+		  get_template_directory_uri().'/assets/js/theme-customizer.js',//Point to file
+		  array( 'jquery','customize-preview' ),	//Define dependencies
+		  '',						//Define a version (optional) 
+		  true						//Put script in footer?
+	);
+}
+add_action( 'customize_preview_init', 'momentum_dadumt_customizer_live_preview' );
 
 ?>
